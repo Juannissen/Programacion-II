@@ -1,0 +1,66 @@
+-el "Extends" sirve para heredar atributos de una clase a otra. no pueden colocarse varias clases, aunque si se puede heredar de una a la otra.
+
+
+MAIN
+
+public class Main {
+
+    public static void main(String[] args) {
+	// write your code here
+     Persona p1 = new Persona();
+     p1.mostrar();
+
+     Empleado e1 = new Empleado();
+     e1.mostrar();
+
+     Cliente c1 = new Cliente();
+     c1.mostrar();
+     
+     Directivo d1 = new Directivo();
+     d1.mostrar();
+     d1.sueldo();
+     d1.CalcularSueldo();
+    }
+}
+
+
+-----------------------------------------------------------------------------------------------
+
+clase PERSONA
+
+public class Persona {
+    public void mostrar(){
+        System.out.println("asdasd");
+    }
+}
+
+-----------------------------------------------------------------------------------------------
+
+clase EMPLEADO
+
+public class Empleado extends Persona {
+
+public void sueldo(){
+    System.out.println("sueldo");
+}
+
+}
+
+-----------------------------------------------------------------------------------------------
+
+clase DIRECTIVO
+
+public class Directivo extends Empleado {
+    public void CalcularSueldo(){
+        System.out.print("su sueldo es:");
+    }
+}
+
+-----------------------------------------------------------------------------------------------
+
+clase CLIENTE
+
+public class Cliente extends Persona {
+}
+
+-----------------------------------------------------------------------------------------------
