@@ -1,37 +1,186 @@
-// Para refactorizar:
+CLASE MAIN 
 
-    1) seleccionar todo el codigo a refactorizar.
-    2) apretar click derecho y luego en refactor.
-    3) en la pestaña refactor, apretar en "Encapsulate fields".
-    4) en la nueva ventana que se abre, tildar todos los campos y darle a ok.
+public class Main {
 
---------------------------------------------------------------------------------------------------------------------------------------------------------------
+    public static void main(String[] args) {
 
-// Metodos y Funciones:
+        /* La clase Entidad es del tipo abstracta, por lo tanto, no se le pueden crear
+        nuevas instancias, osease, "Entidad e1 = new Entidad();
+        aun asi, si puede ser usada como Variable*/
+
+        Entidad e1;
+
+
+        Alumno a1 = new Alumno();
+        a1.setApellido("Gomez");
+        a1.setNombre("Gustavo");
+        a1.setDni("47544823");
+        a1.setCuotaMensual(1500.0);
+        a1.imprimirNombreCompleto();
+
+
+        Docente d1 = new Docente();
+        d1.setApellido("Atreides");
+        d1.setNombre("Paul");
+        d1.setDni("32621146");
+        d1.setSueldo(20500.0);
+        d1.setTituloUniversitario("Tecnico Superior en Computacion");
+        d1.imprimirNombreCompleto();
+
+
+        Materia m1 = new Materia();
+        m1.setAñoCursado(2012);
+        m1.setCuatrimestre(1);
+        m1.setNombre("Programacion IV");
+
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------
+CLASE ENTIDAD
+
+public abstract class Entidad {
+
+    /*Gracias a esta clase, alumno y
+   docente pueden tener los string de nombre, apellido y dni.*/
+
+    private String nombre;
+    private String apellido;
+    private String dni;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+
+    // Metodos y Funciones
     // 1. => Firma
     // 2. => Cuerpo
 
-// Metodos y Funciones Abstractas:
+    // Metodos y Funciones Abstractas
     // 1. => Firma
     // 2. => no tiene Cuerpo
 
     //Esta clase rompera el codigo, debido a que no pueden darle un cuerpo,
     // ya que es abstracta
-    
-    /*  public abstract void imprimirNombreCompleto();  */
-    
-    Si queremos crearlo como metodo, vamos a donde salga error en las clases, ponemos el cursor sobre el error, y aparecera un foco rojo,
-    apretamos en ese foco, pulsamos en "implement methods".
-    Se abrira una ventana, en esa ventana seleccionamos los metodos a implementar, y una vez hecho, se creara un metodo igual al que provoca el error pero
-    con la diferencia de que tendra un cuerpo, osease, no sera abstracto.
-    
-    Al hacer esto, se creara 
-    
-    " @Override
+
+      public abstract void imprimirNombreCompleto();
+
+    /*Si queremos crearlo como metodo, vamos a donde salga error en las clases, ponemos
+    el cursor sobre el error, y aparecera un foco rojo, apretamos en ese foco, pulsamos
+    en "implement methods".
+     Se abrira una ventana, en esa ventana seleccionamos los metodos a implementar, y una
+    vez hecho, se creara un metodo igual al que provoca el error pero con la diferencia
+    de que tendra un cuerpo, osease, no sera abstracto.  */
+}
+
+----------------------------------------------------------------------------------------------------------------------------
+CLASE ALUMNO
+
+public class Alumno extends Entidad {
+    //El extends "Entidad" permite que la clase "Alumno" tenga
+    //los string de nombre, apellido y dni de la clase entidad.
+
+    private double cuotaMensual;
+
+
+    public double getCuotaMensual() {
+        return cuotaMensual;
+    }
+
+    public void setCuotaMensual(double cuotaMensual) {
+        this.cuotaMensual = cuotaMensual;
+    }
+
+    @Override
     public void imprimirNombreCompleto() {
 
-    } "
-    
-    En la clase que tenia el error.
-    
-    ------------------------------------------------------------------------------------------------------------------------------------------------------------
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------
+CLASE DOCENTE
+
+public class Docente extends Entidad{
+    //El extends "Entidad" permite que la clase "Docente" tenga
+    //los string de nombre, apellido y dni de la clase entidad.
+
+    private String tituloUniversitario;
+    private double sueldo;
+
+
+    public double getSueldo() {
+        return sueldo;
+    }
+
+    public void setSueldo(double sueldo) {
+        this.sueldo = sueldo;
+    }
+
+    public String getTituloUniversitario() {
+        return tituloUniversitario;
+    }
+
+    public void setTituloUniversitario(String tituloUniversitario) {
+        this.tituloUniversitario = tituloUniversitario;
+    }
+
+    @Override
+    public void imprimirNombreCompleto() {
+
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------
+CLASE MATERIA
+
+public class Materia {
+    private String nombre;
+    private int añoCursado;
+    private int cuatrimestre;
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getAñoCursado() {
+        return añoCursado;
+    }
+
+    public void setAñoCursado(int añoCursado) {
+        this.añoCursado = añoCursado;
+    }
+
+    public int getCuatrimestre() {
+        return cuatrimestre;
+    }
+
+    public void setCuatrimestre(int cuatrimestre) {
+        this.cuatrimestre = cuatrimestre;
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------------
