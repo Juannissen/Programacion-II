@@ -1,0 +1,6 @@
+Para refactorizar:
+
+1) seleccionar todo el codigo a refactorizar
+2) apretar click derecho y luego en refactor
+3) en la pestaña refactor, apretar en "Encapsulate fields"
+4) en la nueva ventana que se abre, tildar todos los campos y darle a ok
