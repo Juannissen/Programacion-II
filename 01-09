@@ -1,6 +1,37 @@
-Para refactorizar:
+// Para refactorizar:
 
-1) seleccionar todo el codigo a refactorizar
-2) apretar click derecho y luego en refactor
-3) en la pestaña refactor, apretar en "Encapsulate fields"
-4) en la nueva ventana que se abre, tildar todos los campos y darle a ok
+    1) seleccionar todo el codigo a refactorizar.
+    2) apretar click derecho y luego en refactor.
+    3) en la pestaña refactor, apretar en "Encapsulate fields".
+    4) en la nueva ventana que se abre, tildar todos los campos y darle a ok.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Metodos y Funciones:
+    // 1. => Firma
+    // 2. => Cuerpo
+
+// Metodos y Funciones Abstractas:
+    // 1. => Firma
+    // 2. => no tiene Cuerpo
+
+    //Esta clase rompera el codigo, debido a que no pueden darle un cuerpo,
+    // ya que es abstracta
+    
+    /*  public abstract void imprimirNombreCompleto();  */
+    
+    Si queremos crearlo como metodo, vamos a donde salga error en las clases, ponemos el cursor sobre el error, y aparecera un foco rojo,
+    apretamos en ese foco, pulsamos en "implement methods".
+    Se abrira una ventana, en esa ventana seleccionamos los metodos a implementar, y una vez hecho, se creara un metodo igual al que provoca el error pero
+    con la diferencia de que tendra un cuerpo, osease, no sera abstracto.
+    
+    Al hacer esto, se creara 
+    
+    " @Override
+    public void imprimirNombreCompleto() {
+
+    } "
+    
+    En la clase que tenia el error.
+    
+    ------------------------------------------------------------------------------------------------------------------------------------------------------------
